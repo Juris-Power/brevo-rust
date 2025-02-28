@@ -1,0 +1,26 @@
+# SendSmtpEmail
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**sender** | Option<[**models::SendSmtpEmailSender**](sendSmtpEmail_sender.md)> |  | [optional]
+**to** | Option<[**Vec<models::SendSmtpEmailToInner>**](sendSmtpEmail_to_inner.md)> | **Mandatory if messageVersions are not passed, ignored if messageVersions are passed** List of email addresses and names (_optional_) of the recipients. For example, **[{\"name\":\"Jimmy\", \"email\":\"jimmy98@example.com\"}, {\"name\":\"Joe\", \"email\":\"joe@example.com\"}]**  | [optional]
+**bcc** | Option<[**Vec<models::SendSmtpEmailBccInner>**](sendSmtpEmail_bcc_inner.md)> | List of email addresses and names (_optional_) of the recipients in bcc  | [optional]
+**cc** | Option<[**Vec<models::SendSmtpEmailCcInner>**](sendSmtpEmail_cc_inner.md)> | List of email addresses and names (_optional_) of the recipients in cc  | [optional]
+**html_content** | Option<**String**> | HTML body of the message. **Mandatory if 'templateId' is not passed, ignored if 'templateId' is passed**  | [optional]
+**text_content** | Option<**String**> | Plain Text body of the message. **Ignored if 'templateId' is passed**  | [optional]
+**subject** | Option<**String**> | Subject of the message. **Mandatory if 'templateId' is not passed**  | [optional]
+**reply_to** | Option<[**models::SendSmtpEmailReplyTo**](sendSmtpEmail_replyTo.md)> |  | [optional]
+**attachment** | Option<[**Vec<models::SendSmtpEmailAttachmentInner>**](sendSmtpEmail_attachment_inner.md)> | Pass the _absolute URL_ (**no local file**) or the _base64 content_ of the attachment along with the attachment name. **Mandatory if attachment content is passed**. For example, **[{\"url\":\"https://attachment.domain.com/myAttachmentFromUrl.jpg\", \"name\":\"myAttachmentFromUrl.jpg\"}, {\"content\":\"base64 example content\", \"name\":\"myAttachmentFromBase64.jpg\"}]**. Allowed extensions for attachment file: #### xlsx, xls, ods, docx, docm, doc, csv, pdf, txt, gif, jpg, jpeg, png, tif, tiff, rtf, bmp, cgm, css, shtml, html, htm, zip, xml, ppt, pptx, tar, ez, ics, mobi, msg, pub, eps, odt, mp3, m4a, m4v, wma, ogg, flac, wav, aif, aifc, aiff, mp4, mov, avi, mkv, mpeg, mpg, wmv, pkpass and xlsm. If `templateId` is passed and is in New Template Language format then both attachment url and content are accepted. If template is in Old template Language format, then `attachment` is ignored  | [optional]
+**headers** | Option<[**std::collections::HashMap<String, serde_json::Value>**](serde_json::Value.md)> | Pass the set of custom headers (_not the standard headers_) that shall be sent along the mail headers in the original email. **'sender.ip'** header can be set (**only for dedicated ip users**) to mention the IP to be used for sending transactional emails. Headers are allowed in `This-Case-Only` (i.e. words separated by hyphen with first letter of each word in capital letter), they will be converted to such case styling if not in this format in the request payload. For example, **{\"sender.ip\":\"1.2.3.4\", \"X-Mailin-custom\":\"some_custom_header\", \"idempotencyKey\":\"abc-123\"}**.  | [optional]
+**template_id** | Option<**i64**> | Id of the template. | [optional]
+**params** | Option<[**std::collections::HashMap<String, serde_json::Value>**](serde_json::Value.md)> | Pass the set of attributes to customize the template. For example, **{\"FNAME\":\"Joe\", \"LNAME\":\"Doe\"}**. It's **considered only if template is in New Template Language format**.  | [optional]
+**message_versions** | Option<[**Vec<models::SendSmtpEmailMessageVersionsInner>**](sendSmtpEmail_messageVersions_inner.md)> | You can customize and send out multiple versions of a mail. **templateId** can be customized only if global parameter contains templateId. **htmlContent and textContent** can be customized only if any of the two, htmlContent or textContent, is present in global parameters. Some global parameters such as **to(mandatory), bcc, cc, replyTo, subject** can also be customized specific to each version. Total number of recipients in one API request must not exceed 2000. However, you can still pass upto 99 recipients maximum in one message version. The size of individual params in all the messageVersions shall not exceed **100 KB** limit and that of cumulative params shall not exceed **1000 KB**. You can follow this **step-by-step guide** on how to use **messageVersions** to batch send emails - **https://developers.brevo.com/docs/batch-send-transactional-emails**  | [optional]
+**tags** | Option<**Vec<String>**> | Tag your emails to find them more easily | [optional]
+**scheduled_at** | Option<**String**> | UTC date-time on which the email has to schedule (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for scheduling. There can be an expected delay of +5 minutes in scheduled email delivery. | [optional]
+**batch_id** | Option<**String**> | Valid UUIDv4 batch id to identify the scheduled batches transactional email. If not passed we will create a valid UUIDv4 batch id at our end. | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
