@@ -1,10 +1,15 @@
 [package]
 name = "brevo"
-version = "0.1.1"
+version = "1.0.0"
 authors = ["contact@brevo.com"]
 description = "Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo"
+documentation = "https://claxxx.github.io/brevo-rust/brevo/index.html"
+include=["/src", "README.md"]
+keywords = ["brevo", "mail"]
+categories = ["web-programming::http-client"]
 license = "MIT"
 edition = "2021"
+repository = "https://github.com/ClaXXX/brevo-rust"
 
 [dependencies]
 serde = { version = "^1.0", features = ["derive"] }
