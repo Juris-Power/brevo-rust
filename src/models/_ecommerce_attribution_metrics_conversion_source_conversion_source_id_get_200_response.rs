@@ -46,7 +46,7 @@ impl EcommerceAttributionMetricsConversionSourceConversionSourceIdGet200Response
         }
     }
 }
-///
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum ConversionSource {
     #[serde(rename = "email_campaign")]

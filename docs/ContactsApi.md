@@ -251,7 +251,7 @@ There are 2 ways to delete a contact <br><br> Option 1- https://api.brevo.com/v3
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**identifier** | [**GetContactInfoIdentifierParameter**](.md) | Email (urlencoded) OR ID of the contact OR EXT_ID attribute (urlencoded) | [required] |
+**identifier** | **String** | Email (urlencoded) OR ID of the contact OR EXT_ID attribute (urlencoded) | [required] |
 **identifier_type** | Option<**String**> | email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute |  |
 
 ### Return type
@@ -393,7 +393,7 @@ There are 2 ways to get a contact <br><br> Option 1- https://api.brevo.com/v3/co
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**identifier** | [**GetContactInfoIdentifierParameter**](.md) | Email (urlencoded) OR ID of the contact OR its SMS attribute value OR EXT_ID attribute (urlencoded) | [required] |
+**identifier** | **String** | Email (urlencoded) OR ID of the contact OR its SMS attribute value OR EXT_ID attribute (urlencoded) | [required] |
 **identifier_type** | Option<**String**> | email_id for Email, phone_id for SMS attribute, contact_id for ID of the contact, ext_id for EXT_ID attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE_NUMBER attribute |  |
 **start_date** | Option<**String**> | **Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  |  |
 **end_date** | Option<**String**> | **Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate.  |  |
@@ -424,7 +424,7 @@ Get email campaigns' statistics for a contact
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**identifier** | [**GetContactInfoIdentifierParameter**](.md) | Email (urlencoded) OR ID of the contact | [required] |
+**identifier** | **String** | Email (urlencoded) OR ID of the contact | [required] |
 **start_date** | Option<**String**> | **Mandatory if endDate is used.** Starting date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be lower than equal to endDate  |  |
 **end_date** | Option<**String**> | **Mandatory if startDate is used.** Ending date (YYYY-MM-DD) of the statistic events specific to campaigns. Must be greater than equal to startDate. Maximum difference between startDate and endDate should not be greater than 90 days  |  |
 
@@ -849,7 +849,7 @@ There are 2 ways to update a contact <br><br> Option 1- https://api.brevo.com/v3
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**identifier** | [**GetContactInfoIdentifierParameter**](.md) | Email (urlencoded) OR ID of the contact OR EXT_ID attribute (urlencoded) OR its SMS attribute value OR its WHATSAPP attribute value OR its LANDLINE attribute value | [required] |
+**identifier** | **String** | Email (urlencoded) OR ID of the contact OR EXT_ID attribute (urlencoded) OR its SMS attribute value OR its WHATSAPP attribute value OR its LANDLINE attribute value | [required] |
 **update_contact** | [**UpdateContact**](UpdateContact.md) | Values to update a contact | [required] |
 **identifier_type** | Option<**String**> | email_id for Email, contact_id for ID of the contact, ext_id for EXT_ID attribute, phone_id for SMS attribute, whatsapp_id for WHATSAPP attribute, landline_number_id for LANDLINE attribute |  |
 

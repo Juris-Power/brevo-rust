@@ -18,15 +18,6 @@ pub enum GetContactInfoIdentifierParameter {
     Integer(i32),
 }
 
-impl std::fmt::Display for GetContactInfoIdentifierParameter {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self {
-            GetContactInfoIdentifierParameter::String(s) => write!(f, "{}", s),
-            GetContactInfoIdentifierParameter::Integer(i) => write!(f, "{}", i),
-        }
-    }
-}
-
 impl Default for GetContactInfoIdentifierParameter {
     fn default() -> Self {
         Self::String(Default::default())

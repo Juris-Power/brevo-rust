@@ -1,6 +1,6 @@
 [package]
 name = "brevo"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["contact@brevo.com"]
 description = "Brevo provide a RESTFul API that can be used with any languages. With this API, you will be able to :   - Manage your campaigns and get the statistics   - Manage your contacts   - Send transactional Emails and SMS   - and much more...  You can download our wrappers at https://github.com/orgs/brevo"
 license = "MIT"
