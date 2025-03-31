@@ -7,7 +7,7 @@ documentation = "https://juris-power.github.io/brevo-rust/brevo/index.html"
 include=["/src", "README.md"]
 keywords = ["brevo", "mail"]
 categories = ["web-programming::http-client"]
-license = "MIT"
+license = "AGPL-3.0-only"
 edition = "2021"
 repository = "https://github.com/Juris-Power/brevo-rust"
 
