@@ -2,8 +2,8 @@ name: Security audit
 
 on:
   workflow_dispatch:
-  push:
-    paths: 
+  pull_request:
+    paths:
       - '**/Cargo.toml'
       - '**/Cargo.lock'
 
