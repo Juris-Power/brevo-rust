@@ -1,9 +1,9 @@
 name: Security audit
 
 on:
-  workflow_call:
-  push:
-    paths: 
+  workflow_dispatch:
+  pull_request:
+    paths:
       - '**/Cargo.toml'
       - '**/Cargo.lock'
 
@@ -13,6 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: rustsec/audit-check@v2.0.0
+      - uses: actions-rust-lang/audit@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
