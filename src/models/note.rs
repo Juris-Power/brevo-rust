@@ -35,6 +35,9 @@ pub struct Note {
     /// Note updated date/time
     #[serde(rename = "updatedAt", skip_serializing_if = "Option::is_none")]
     pub updated_at: Option<String>,
+    /// Note pinned date/time
+    #[serde(rename = "pinnedAt", skip_serializing_if = "Option::is_none")]
+    pub pinned_at: Option<String>,
 }
 
 impl Note {
@@ -48,6 +51,7 @@ impl Note {
             author_id: None,
             created_at: None,
             updated_at: None,
+            pinned_at: None,
         }
     }
 }

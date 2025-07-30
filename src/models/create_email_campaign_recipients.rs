@@ -23,6 +23,12 @@ pub struct CreateEmailCampaignRecipients {
     /// **Mandatory if listIds are not used**. Segment ids to send the campaign to.
     #[serde(rename = "segmentIds", skip_serializing_if = "Option::is_none")]
     pub segment_ids: Option<Vec<i64>>,
+    /// Segment ids which have to be excluded from a campaign.
+    #[serde(
+        rename = "exclusionSegmentIds",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub exclusion_segment_ids: Option<Vec<i64>>,
 }
 
 impl CreateEmailCampaignRecipients {
@@ -32,6 +38,7 @@ impl CreateEmailCampaignRecipients {
             exclusion_list_ids: None,
             list_ids: None,
             segment_ids: None,
+            exclusion_segment_ids: None,
         }
     }
 }

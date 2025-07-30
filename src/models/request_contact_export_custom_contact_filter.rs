@@ -29,9 +29,12 @@ pub struct RequestContactExportCustomContactFilter {
         skip_serializing_if = "Option::is_none"
     )]
     pub action_for_sms_campaigns: Option<ActionForSmsCampaigns>,
-    /// **Mandatory if actionForContacts is passed, ignored otherwise.** Id of the list for which the corresponding action shall be applied in the filter.
+    /// ID of the list. This is mandatory if actionForContacts is specified and segmentId is not provided. Either segmentId or listId must be included.
     #[serde(rename = "listId", skip_serializing_if = "Option::is_none")]
     pub list_id: Option<i64>,
+    /// ID of the segment. This is mandatory if actionForContacts is specified and listId is not provided. Either segmentId or listId must be included.
+    #[serde(rename = "segmentId", skip_serializing_if = "Option::is_none")]
+    pub segment_id: Option<i64>,
     /// Considered only if **actionForEmailCampaigns** is passed, ignored otherwise. **Mandatory if action is one of the following - openers, nonOpeners, clickers, nonClickers, unsubscribed.** The id of the email campaign for which the corresponding action shall be applied in the filter.
     #[serde(rename = "emailCampaignId", skip_serializing_if = "Option::is_none")]
     pub email_campaign_id: Option<i64>,
@@ -48,6 +51,7 @@ impl RequestContactExportCustomContactFilter {
             action_for_email_campaigns: None,
             action_for_sms_campaigns: None,
             list_id: None,
+            segment_id: None,
             email_campaign_id: None,
             sms_campaign_id: None,
         }

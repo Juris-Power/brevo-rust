@@ -16,10 +16,10 @@ pub struct UpdateAttribute {
     /// Value of the attribute to update. **Use only if the attribute's category is 'calculated' or 'global'**
     #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
     pub value: Option<String>,
-    /// List of the values and labels that the attribute can take. **Use only if the attribute's category is \"category\"**. For example, **[{\"value\":1, \"label\":\"male\"}, {\"value\":2, \"label\":\"female\"}]**
+    /// List of the values and labels that the attribute can take. **Use only if the attribute's category is \"category\"**. None of the category options can exceed max 200 characters. For example, **[{\"value\":1, \"label\":\"male\"}, {\"value\":2, \"label\":\"female\"}]**
     #[serde(rename = "enumeration", skip_serializing_if = "Option::is_none")]
     pub enumeration: Option<Vec<models::UpdateAttributeEnumerationInner>>,
-    /// Use this option to add multiple-choice attributes options only if the attribute's category is \"normal\". **This option is specifically designed for updating multiple-choice attributes**. For example: **[\"USA\",\"INDIA\"]**
+    /// Use this option to add multiple-choice attributes options only if the attribute's category is \"normal\". **This option is specifically designed for updating multiple-choice attributes. None of the multicategory options can exceed max 200 characters.** For example: **[\"USA\",\"INDIA\"]**
     #[serde(
         rename = "multiCategoryOptions",
         skip_serializing_if = "Option::is_none"

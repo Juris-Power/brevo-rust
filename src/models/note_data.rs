@@ -26,6 +26,9 @@ pub struct NoteData {
     /// Company Ids linked to a note
     #[serde(rename = "companyIds", skip_serializing_if = "Option::is_none")]
     pub company_ids: Option<Vec<String>>,
+    /// When creating a note, set it to \"true\" to pin it. Otherwise, the default\\nvalue of \"false\" will be applied.
+    #[serde(rename = "isPinned", skip_serializing_if = "Option::is_none")]
+    pub is_pinned: Option<bool>,
 }
 
 impl NoteData {
@@ -36,6 +39,7 @@ impl NoteData {
             contact_ids: None,
             deal_ids: None,
             company_ids: None,
+            is_pinned: None,
         }
     }
 }

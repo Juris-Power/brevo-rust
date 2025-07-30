@@ -34,11 +34,11 @@ pub struct CreateWebhook {
     /// Batching configuration of the webhook, we send batched webhooks if its true
     #[serde(rename = "batched", skip_serializing_if = "Option::is_none")]
     pub batched: Option<bool>,
-    /// Authentication header to be send with the webhook requests
     #[serde(rename = "auth", skip_serializing_if = "Option::is_none")]
-    pub auth: Option<serde_json::Value>,
+    pub auth: Option<Box<models::CreateWebhookAuth>>,
+    /// The headers sent with the request to the webhook. Header format: \"headers\": [{ \"key\": \"cf-secret\",\"value\": \"test-header-value\"}]
     #[serde(rename = "headers", skip_serializing_if = "Option::is_none")]
-    pub headers: Option<Vec<serde_json::Value>>,
+    pub headers: Option<Vec<models::CreateWebhookHeadersInner>>,
 }
 
 impl CreateWebhook {

@@ -28,6 +28,12 @@ pub struct GetAttributesAttributesInner {
     /// Calculated value formula
     #[serde(rename = "calculatedValue", skip_serializing_if = "Option::is_none")]
     pub calculated_value: Option<String>,
+    /// Parameter only available for \"multiple-choice\" type attributes.
+    #[serde(
+        rename = "multiCategoryOptions",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub multi_category_options: Option<Vec<String>>,
 }
 
 impl GetAttributesAttributesInner {
@@ -38,6 +44,7 @@ impl GetAttributesAttributesInner {
             r#type: None,
             enumeration: None,
             calculated_value: None,
+            multi_category_options: None,
         }
     }
 }
@@ -74,6 +81,10 @@ pub enum Type {
     Id,
     #[serde(rename = "boolean")]
     Boolean,
+    #[serde(rename = "multiple-choice")]
+    MultipleChoice,
+    #[serde(rename = "user")]
+    User,
 }
 
 impl Default for Type {

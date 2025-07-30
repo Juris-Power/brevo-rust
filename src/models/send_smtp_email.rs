@@ -59,6 +59,9 @@ pub struct SendSmtpEmail {
     /// Valid UUIDv4 batch id to identify the scheduled batches transactional email. If not passed we will create a valid UUIDv4 batch id at our end.
     #[serde(rename = "batchId", skip_serializing_if = "Option::is_none")]
     pub batch_id: Option<String>,
+    /// A short summary that appears next to the subject line in the recipient’s inbox. This preview text gives recipients a quick idea of what the email is about before they open it.
+    #[serde(rename = "preheader", skip_serializing_if = "Option::is_none")]
+    pub preheader: Option<String>,
 }
 
 impl SendSmtpEmail {
@@ -80,6 +83,7 @@ impl SendSmtpEmail {
             tags: None,
             scheduled_at: None,
             batch_id: None,
+            preheader: None,
         }
     }
 }

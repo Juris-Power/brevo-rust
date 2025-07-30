@@ -21,6 +21,12 @@ pub struct RequestContactExport {
     /// Webhook that will be called once the export process is finished. For reference, https://help.brevo.com/hc/en-us/articles/360007666479
     #[serde(rename = "notifyUrl", skip_serializing_if = "Option::is_none")]
     pub notify_url: Option<String>,
+    /// To avoid generating the email notification upon contact export, pass **true**
+    #[serde(
+        rename = "disableNotification",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub disable_notification: Option<bool>,
     /// To export mandatory attributes like EMAIL, ADDED_TIME, MODIFIED_TIME
     #[serde(
         rename = "exportMandatoryAttributes",
@@ -46,6 +52,7 @@ impl RequestContactExport {
             export_attributes: None,
             custom_contact_filter: Box::new(custom_contact_filter),
             notify_url: None,
+            disable_notification: None,
             export_mandatory_attributes: None,
             export_subscription_status: None,
             export_metadata: None,

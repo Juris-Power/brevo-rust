@@ -24,6 +24,7 @@ Method | HTTP request | Description
 [**send_transac_email**](TransactionalEmailsApi.md#send_transac_email) | **POST** /smtp/email | Send a transactional email
 [**smtp_blocked_contacts_email_delete**](TransactionalEmailsApi.md#smtp_blocked_contacts_email_delete) | **DELETE** /smtp/blockedContacts/{email} | Unblock or resubscribe a transactional contact
 [**smtp_log_identifier_delete**](TransactionalEmailsApi.md#smtp_log_identifier_delete) | **DELETE** /smtp/log/{identifier} | Delete an SMTP transactional log
+[**template_preview**](TransactionalEmailsApi.md#template_preview) | **POST** /smtp/template/preview | Generate the rendered preview of transactional template
 [**update_smtp_template**](TransactionalEmailsApi.md#update_smtp_template) | **PUT** /smtp/templates/{templateId} | Update an email template
 
 
@@ -626,7 +627,7 @@ Delete an SMTP transactional log
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**identifier** | **String** | MessageId or Email of the transactional log(s) to delete | [required] |
+**identifier** | **String** | MessageId of the transactional log(s) to delete | [required] |
 
 ### Return type
 
@@ -639,6 +640,34 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## template_preview
+
+> models::TemplatePreviewModel template_preview(template_preview_request_body)
+Generate the rendered preview of transactional template
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**template_preview_request_body** | Option<[**TemplatePreviewRequestBody**](TemplatePreviewRequestBody.md)> | Values to fetch Template preview | [required] |
+
+### Return type
+
+[**models::TemplatePreviewModel**](templatePreviewModel.md)
+
+### Authorization
+
+[api-key](../README.md#api-key)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -44,8 +44,6 @@ pub enum Feature {
     Templates,
     #[serde(rename = "workflows")]
     Workflows,
-    #[serde(rename = "facebook_ads")]
-    FacebookAds,
     #[serde(rename = "landing_pages")]
     LandingPages,
     #[serde(rename = "transactional_emails")]

@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **channel** | Option<**String**> | channel of webhook | [optional][default to Email]
 **domain** | Option<**String**> | Inbound domain of webhook, required in case of event type `inbound` | [optional]
 **batched** | Option<**bool**> | Batching configuration of the webhook, we send batched webhooks if its true | [optional]
-**auth** | Option<[**serde_json::Value**](.md)> | Authentication header to be send with the webhook requests | [optional]
-**headers** | Option<[**Vec<serde_json::Value>**](serde_json::Value.md)> |  | [optional]
+**auth** | Option<[**models::CreateWebhookAuth**](createWebhook_auth.md)> |  | [optional]
+**headers** | Option<[**Vec<models::CreateWebhookHeadersInner>**](createWebhook_headers_inner.md)> | The headers sent with the request to the webhook. Header format: \"headers\": [{ \"key\": \"cf-secret\",\"value\": \"test-header-value\"}]  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

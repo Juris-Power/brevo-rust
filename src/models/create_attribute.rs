@@ -19,10 +19,10 @@ pub struct CreateAttribute {
     /// Type of the attribute. **Use only if the attribute's category is 'calculated' or 'global'**
     #[serde(rename = "isRecurring", skip_serializing_if = "Option::is_none")]
     pub is_recurring: Option<bool>,
-    /// List of values and labels that the attribute can take. **Use only if the attribute's category is \"category\"**. For example: **[{\"value\":1, \"label\":\"male\"}, {\"value\":2, \"label\":\"female\"}]**
+    /// List of values and labels that the attribute can take. **Use only if the attribute's category is \"category\"**. None of the category options can exceed max 200 characters. For example: **[{\"value\":1, \"label\":\"male\"}, {\"value\":2, \"label\":\"female\"}]**
     #[serde(rename = "enumeration", skip_serializing_if = "Option::is_none")]
     pub enumeration: Option<Vec<models::CreateAttributeEnumerationInner>>,
-    /// List of options you want to add for multiple-choice attribute. **Use only if the attribute's category is \"normal\" and attribute's type is \"multiple-choice\".** For example: **[\"USA\",\"INDIA\"]**
+    /// List of options you want to add for multiple-choice attribute. **Use only if the attribute's category is \"normal\" and attribute's type is \"multiple-choice\". None of the multicategory options can exceed max 200 characters.** For example: **[\"USA\",\"INDIA\"]**
     #[serde(
         rename = "multiCategoryOptions",
         skip_serializing_if = "Option::is_none"

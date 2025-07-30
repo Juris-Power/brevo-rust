@@ -38,6 +38,8 @@ pub enum Status {
     Sent,
     #[serde(rename = "queued")]
     Queued,
+    #[serde(rename = "cancel")]
+    Cancel,
     #[serde(rename = "replicate")]
     Replicate,
     #[serde(rename = "replicateTemplate")]

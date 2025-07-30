@@ -50,6 +50,9 @@ pub struct CreateUpdateProduct {
     /// product deleted from the shop's database
     #[serde(rename = "isDeleted", skip_serializing_if = "Option::is_none")]
     pub is_deleted: Option<bool>,
+    /// Current stock value of the product from the shop's database
+    #[serde(rename = "stock", skip_serializing_if = "Option::is_none")]
+    pub stock: Option<f64>,
 }
 
 impl CreateUpdateProduct {
@@ -67,6 +70,7 @@ impl CreateUpdateProduct {
             update_enabled: None,
             deleted_at: None,
             is_deleted: None,
+            stock: None,
         }
     }
 }

@@ -61,6 +61,12 @@ pub struct GetCampaignStats {
     /// Total number of non-delivered campaigns for a particular campaign id.
     #[serde(rename = "returnBounce", skip_serializing_if = "Option::is_none")]
     pub return_bounce: Option<i64>,
+    /// Percentage of recipients who open the email out of your total number of recipients. Depending on your Campaign settings, they may include Apple MPP opens.
+    #[serde(rename = "opensRate", skip_serializing_if = "Option::is_none")]
+    pub opens_rate: Option<f32>,
+    /// Numbers of times your email has been opened automatically through Apple MPP.
+    #[serde(rename = "appleMppOpens", skip_serializing_if = "Option::is_none")]
+    pub apple_mpp_opens: Option<i64>,
 }
 
 impl GetCampaignStats {
@@ -94,6 +100,8 @@ impl GetCampaignStats {
             viewed,
             deferred: None,
             return_bounce: None,
+            opens_rate: None,
+            apple_mpp_opens: None,
         }
     }
 }
