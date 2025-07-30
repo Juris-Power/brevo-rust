@@ -11,6 +11,9 @@ license = "AGPL-3.0-only"
 edition = "2021"
 repository = "https://github.com/Juris-Power/brevo-rust"
 
+[features]
+rust-tls = ["reqwest/rustls-tls"]
+
 [dependencies]
 serde = { version = "^1.0", features = ["derive"] }
 serde_with = { version = "^3.8", default-features = false, features = ["base64", "std", "macros"] }
