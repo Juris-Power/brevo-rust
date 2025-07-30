@@ -71,7 +71,7 @@ Name | Type | Description  | Required | Notes
 
 ## export_webhooks_history
 
-> models::CreatedProcessId export_webhooks_history(export_webhooks_history_request)
+> models::CreatedProcessId export_webhooks_history(export_webhooks_history)
 Export all webhook events
 
 This endpoint will submit a request to get the history of webhooks in the CSV file. The link to download the CSV file will be sent to the webhook that was provided in the notifyURL.
@@ -81,7 +81,7 @@ This endpoint will submit a request to get the history of webhooks in the CSV fi
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**export_webhooks_history_request** | [**ExportWebhooksHistoryRequest**](ExportWebhooksHistoryRequest.md) | Values to submit for webhooks history | [required] |
+**export_webhooks_history** | [**ExportWebhooksHistory**](ExportWebhooksHistory.md) | Values to submit for webhooks history | [required] |
 
 ### Return type
 

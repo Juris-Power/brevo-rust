@@ -20,6 +20,8 @@ Name | Type | Description | Notes
 **viewed** | **i64** | Number of openings for the campaign | 
 **deferred** | Option<**i64**> | Number of deferred emails for the campaign | [optional]
 **return_bounce** | Option<**i64**> | Total number of non-delivered campaigns for a particular campaign id. | [optional]
+**opens_rate** | Option<**f32**> | Percentage of recipients who open the email out of your total number of recipients. Depending on your Campaign settings, they may include Apple MPP opens. | [optional]
+**apple_mpp_opens** | Option<**i64**> | Numbers of times your email has been opened automatically through Apple MPP. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

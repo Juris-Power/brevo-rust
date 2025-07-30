@@ -14,6 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostContactInfoContactsFailure {
+    /// Can be a message or an integer code
     Array(Vec<String>),
     // Array(Vec<i64>),
 }

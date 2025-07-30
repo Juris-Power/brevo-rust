@@ -82,7 +82,7 @@ pub async fn create_webhook(
     if let Some(ref apikey) = configuration.api_key {
         let key = apikey.key.clone();
         let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
+            Some(ref prefix) => format!("{prefix} {key}"),
             None => key,
         };
         req_builder = req_builder.header("api-key", value);
@@ -140,7 +140,7 @@ pub async fn delete_webhook(
     if let Some(ref apikey) = configuration.api_key {
         let key = apikey.key.clone();
         let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
+            Some(ref prefix) => format!("{prefix} {key}"),
             None => key,
         };
         req_builder = req_builder.header("api-key", value);
@@ -167,10 +167,10 @@ pub async fn delete_webhook(
 /// This endpoint will submit a request to get the history of webhooks in the CSV file. The link to download the CSV file will be sent to the webhook that was provided in the notifyURL.
 pub async fn export_webhooks_history(
     configuration: &configuration::Configuration,
-    export_webhooks_history_request: models::ExportWebhooksHistoryRequest,
+    export_webhooks_history: models::ExportWebhooksHistory,
 ) -> Result<models::CreatedProcessId, Error<ExportWebhooksHistoryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_export_webhooks_history_request = export_webhooks_history_request;
+    let p_export_webhooks_history = export_webhooks_history;
 
     let uri_str = format!("{}/webhooks/export", configuration.base_path);
     let mut req_builder = configuration
@@ -183,12 +183,12 @@ pub async fn export_webhooks_history(
     if let Some(ref apikey) = configuration.api_key {
         let key = apikey.key.clone();
         let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
+            Some(ref prefix) => format!("{prefix} {key}"),
             None => key,
         };
         req_builder = req_builder.header("api-key", value);
     };
-    req_builder = req_builder.json(&p_export_webhooks_history_request);
+    req_builder = req_builder.json(&p_export_webhooks_history);
 
     let req = req_builder.build()?;
     let resp = configuration.client.execute(req).await?;
@@ -239,7 +239,7 @@ pub async fn get_webhook(
     if let Some(ref apikey) = configuration.api_key {
         let key = apikey.key.clone();
         let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
+            Some(ref prefix) => format!("{prefix} {key}"),
             None => key,
         };
         req_builder = req_builder.header("api-key", value);
@@ -298,7 +298,7 @@ pub async fn get_webhooks(
     if let Some(ref apikey) = configuration.api_key {
         let key = apikey.key.clone();
         let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
+            Some(ref prefix) => format!("{prefix} {key}"),
             None => key,
         };
         req_builder = req_builder.header("api-key", value);
@@ -355,7 +355,7 @@ pub async fn update_webhook(
     if let Some(ref apikey) = configuration.api_key {
         let key = apikey.key.clone();
         let value = match apikey.prefix {
-            Some(ref prefix) => format!("{} {}", prefix, key),
+            Some(ref prefix) => format!("{prefix} {key}"),
             None => key,
         };
         req_builder = req_builder.header("api-key", value);

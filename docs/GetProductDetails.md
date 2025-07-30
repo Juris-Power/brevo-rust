@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **s3_thumb_editor** | **String** | S3 thumbnail url of original image in 600x400 dimension for editor section | 
 **meta_info** | Option<[**serde_json::Value**](.md)> | Meta data of product such as description, vendor, producer, stock level, etc. | [optional]
 **is_deleted** | Option<**bool**> | product deleted from the shop's database | [optional]
+**stock** | Option<**f64**> | Current stock value of the product from the shop's database | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

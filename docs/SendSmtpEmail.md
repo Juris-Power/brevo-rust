@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **tags** | Option<**Vec<String>**> | Tag your emails to find them more easily | [optional]
 **scheduled_at** | Option<**String**> | UTC date-time on which the email has to schedule (YYYY-MM-DDTHH:mm:ss.SSSZ). Prefer to pass your timezone in date-time format for scheduling. There can be an expected delay of +5 minutes in scheduled email delivery. | [optional]
 **batch_id** | Option<**String**> | Valid UUIDv4 batch id to identify the scheduled batches transactional email. If not passed we will create a valid UUIDv4 batch id at our end. | [optional]
+**preheader** | Option<**String**> | A short summary that appears next to the subject line in the recipient’s inbox. This preview text gives recipients a quick idea of what the email is about before they open it.  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
